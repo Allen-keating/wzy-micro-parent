@@ -1,0 +1,19 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: wzy-client-service
+  # --- 以下是新增的数据库配置 ---
+  datasource:
+    # 数据库名修改为 wzy_cloud_db (原 zsx-springcloud)
+    url: jdbc:mysql://localhost:3306/wzy_cloud_db?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456  # 【注意】这里请改成你自己电脑MySQL的密码！
+  jpa:
+    show-sql: true        # 在控制台打印SQL，方便调试
+    generate-ddl: true    # 允许自动建表
+    database: mysql
+    hibernate:
+      ddl-auto: update    # 自动更新表结构，不需要手动建表
