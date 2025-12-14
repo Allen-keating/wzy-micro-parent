@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>wzy-client-service</module>
+        <module>wzy-order-web</module>
     </modules>
 
     <parent>

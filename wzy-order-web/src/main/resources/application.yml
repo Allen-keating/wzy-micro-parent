@@ -1,0 +1,6 @@
+server:
+  port: 9002 # 注意：这里是9002，不要和9001冲突
+
+spring:
+  application:
+    name: wzy-order-web
