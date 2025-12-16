@@ -16,6 +16,10 @@ eureka:
 
 # Zuul 路由配置
 zuul:
+
+  SendErrorFilter:
+    error:
+      disable: true
   routes:
     # 路由规则1：访问 /client-api/** 转发给 wzy-client-service
     client-route:
