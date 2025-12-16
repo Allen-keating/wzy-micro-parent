@@ -17,7 +17,7 @@ public class OrderController {
 
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String createOrder() {
-        Integer clientId = 1;
+        Integer clientId = 2;
 
         // 1. 调用远程服务 (如果服务挂了，会自动进入 ClientFeignClientImpl 的 fallback)
         Client client = clientFeignClient.findById(clientId);
