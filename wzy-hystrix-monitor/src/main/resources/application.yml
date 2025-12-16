@@ -1,0 +1,8 @@
+server:
+  port: 7778
+spring:
+  application:
+    name: wzy-hystrix-monitor
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "*"

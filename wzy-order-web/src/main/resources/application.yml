@@ -18,3 +18,9 @@ wzy-client-service:
   ribbon:
     # 指定具体的规则类：随机策略
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+
+# 开启 OpenFeign 的 Hystrix 熔断功能
+feign:
+  hystrix:
+    enabled: true

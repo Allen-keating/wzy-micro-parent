@@ -25,7 +25,7 @@ public class ClientController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Client findById(@PathVariable Integer id) {
         // 添加这一行日志，用于区分实例
-        System.out.println(">>> 客户服务 [11111] 被调用了！");
+        System.out.println(">>> 客户服务 [22222] 被调用了！");
         return clientService.findById(id);
     }
 

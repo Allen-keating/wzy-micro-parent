@@ -12,6 +12,9 @@
         <module>wzy-client-service</module>
         <module>wzy-order-web</module>
         <module>wzy-discovery-server</module>
+        <module>wzy-hystrix-monitor</module>
+
+
     </modules>
 
     <parent>
