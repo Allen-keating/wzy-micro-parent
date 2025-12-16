@@ -4,19 +4,20 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
-@EnableEurekaClient // 新增这一行
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})public class OrderApplication {
+import org.springframework.cloud.openfeign.EnableFeignClients; // 1. 导入包
+
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@EnableEurekaClient
+@EnableFeignClients // 2. 开启 Feign 功能
+public class OrderApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(OrderApplication.class, args);
     }
 
-    // --- 核心步骤：注入 RestTemplate ---
-    // 这一步相当于初始化了一个 HTTP 客户端工具，让我们可以发请求
-    @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
+    // RestTemplate 可以保留也可以删掉，Feign 底层其实默认还是用的 HTTP 客户端
+    // @Bean
+    // public RestTemplate restTemplate() {
+    //     return new RestTemplate();
+    // }
 }
