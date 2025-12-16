@@ -34,24 +34,32 @@ public class MyErrorFilter extends ZuulFilter {
     public Object run() throws ZuulException {
         System.out.println(">>> 进入自定义异常过滤器 MyErrorFilter");
 
-        // 1. 获取上下文
         RequestContext currentContext = RequestContext.getCurrentContext();
         HttpServletResponse response = currentContext.getResponse();
 
-        // 2. 获取抛出的异常信息
-        ZuulException exception = (ZuulException) currentContext.get("throwable");
+        // 【修改点1】使用 Throwable 接收，避免 ClassCastException
+        Throwable throwable = currentContext.getThrowable();
+
+        // 【修改点2】安全地获取异常信息 (如果是包装异常，可能需要获取 cause)
+        String message = "执行失败";
+        if (throwable != null) {
+            // 如果是 ZuulException 且有 Cause，通常 Cause 里的 message 才是原始报错
+            if (throwable.getCause() != null) {
+                message += ": " + throwable.getCause().getMessage();
+            } else {
+                message += ": " + throwable.getMessage();
+            }
+        }
 
         // 3. 构建错误响应对象
-        Result result = new Result(false, "执行失败: " + exception.getMessage());
+        Result result = new Result(false, message);
 
         // 4. 将对象转为 JSON 字符串并输出
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             String jsonString = objectMapper.writeValueAsString(result);
-
             response.setContentType("application/json;charset=utf-8");
             response.getWriter().write(jsonString);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
