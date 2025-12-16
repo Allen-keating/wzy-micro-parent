@@ -1,0 +1,21 @@
+server:
+  port: 12000 # 实验要求端口
+
+spring:
+  application:
+    name: wzy-config-server
+  cloud:
+    config:
+      server:
+        git:
+          # 【重要】改成你第一步创建的仓库地址，例如 https://gitee.com/你的用户名/springcloud-config-repo.git
+          uri: https://github.com/Allen-keating/springcloud-config-repo.git
+          default-label: main
+          # 如果仓库是私有的，需要配置 username 和 password
+          # username: your-username
+          # password: your-password
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
