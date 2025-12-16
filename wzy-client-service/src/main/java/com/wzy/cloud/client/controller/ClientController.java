@@ -21,10 +21,14 @@ public class ClientController {
     }
 
     // 2. 根据ID查询 (GET http://localhost:9001/client/1)
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Client findById(@PathVariable Integer id) {
+        // 添加这一行日志，用于区分实例
+        System.out.println(">>> 客户服务 [11111] 被调用了！");
         return clientService.findById(id);
     }
+
 
     // 3. 添加客户 (POST http://localhost:9001/client)
     @RequestMapping(method = RequestMethod.POST)

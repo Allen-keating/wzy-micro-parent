@@ -11,3 +11,10 @@ eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
+# ... 上面是原有的 eureka 配置 ...
+
+# 针对 wzy-client-service 这个服务，设置负载均衡规则
+wzy-client-service:
+  ribbon:
+    # 指定具体的规则类：随机策略
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

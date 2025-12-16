@@ -1,5 +1,5 @@
 server:
-  port: 9999  # 修改端口
+  port: 8888
 
 spring:
   application:
@@ -9,8 +9,8 @@ eureka:
   instance:
     hostname: localhost
   client:
-    register-with-eureka: true
-    fetch-registry: true
+    # 单机版关键配置：自己不注册给自己，也不拉取注册表
+    register-with-eureka: false
+    fetch-registry: false
     service-url:
-      # 指向刚才启动的第一个节点 8888
-      defaultZone: http://localhost:8888/eureka/
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
