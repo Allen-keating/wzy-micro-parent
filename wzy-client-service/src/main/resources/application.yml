@@ -1,5 +1,5 @@
 server:
-  port: 9101
+  port: 9001
 
 spring:
   application:
@@ -22,5 +22,6 @@ eureka:
     service-url:
       defaultZone: http://localhost:8888/eureka/
   instance:
-    prefer-ip-address: true
+    hostname: localhost        # 强制主机名为 localhost
+    prefer-ip-address: false   # 关键！改为 false，禁止使用 IP (192.168...) 注册
     instance-id: ${spring.application.name}:${server.port}

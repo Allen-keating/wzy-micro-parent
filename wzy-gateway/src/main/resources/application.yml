@@ -1,0 +1,28 @@
+server:
+  port: 8222  # 网关端口
+
+spring:
+  application:
+    name: wzy-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+
+# Zuul 路由配置
+zuul:
+  routes:
+    # 路由规则1：访问 /client-api/** 转发给 wzy-client-service
+    client-route:
+      path: /client-api/**
+      serviceId: wzy-client-service
+
+    # 路由规则2：访问 /order-api/** 转发给 wzy-order-web
+    order-route:
+      path: /order-api/**
+      serviceId: wzy-order-web

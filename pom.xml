@@ -13,6 +13,7 @@
         <module>wzy-order-web</module>
         <module>wzy-discovery-server</module>
         <module>wzy-hystrix-monitor</module>
+        <module>wzy-gateway</module>
 
 
     </modules>
