@@ -3,9 +3,10 @@ package com.wzy.cloud.order;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
-
+@EnableEurekaClient // 新增这一行
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})public class OrderApplication {
 
     public static void main(String[] args) {

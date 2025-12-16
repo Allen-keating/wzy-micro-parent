@@ -1,0 +1,16 @@
+server:
+  port: 9999  # 修改端口
+
+spring:
+  application:
+    name: wzy-discovery-server
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      # 指向刚才启动的第一个节点 8888
+      defaultZone: http://localhost:8888/eureka/
