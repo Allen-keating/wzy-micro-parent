@@ -14,7 +14,20 @@ spring:
           # 如果仓库是私有的，需要配置 username 和 password
           # username: your-username
           # password: your-password
+  rabbitmq:
+    # 请配置你的 RabbitMQ 地址，如果是本机默认安装可不改，容器化部署请改为 IP
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
+# 暴露 Actuator 端点
+management:
+  endpoints:
+    web:
+      exposure:
+        # 开启 bus-refresh 端点，这是触发全自动刷新的开关
+        include: bus-refresh
 eureka:
   client:
     service-url:
