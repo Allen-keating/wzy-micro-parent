@@ -1,0 +1,18 @@
+server:
+  port: 12000
+
+spring:
+  application:
+    name: wzy-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Allen-keating/springcloud-config-repo.git # 你的仓库地址
+          # 【新增】指定默认分支为 main
+          default-label: main
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
