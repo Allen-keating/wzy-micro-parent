@@ -5,7 +5,7 @@ spring:
       # 对应 Git 上的 order-dev.yml
       name: order
       profile: dev
-      label: main
+      label: trunk
 
   application:
     name: wzy-order-web

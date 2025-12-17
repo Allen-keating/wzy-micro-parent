@@ -8,7 +8,7 @@ spring:
       # 【关键】对应 Git 仓库里的文件名 client-dev.yml 中的 "dev"
       profile: dev
       # 对应 Git 分支，如果你刚才用的是 master 就写 master
-      label: main
+      label: trunk
 
   # 即使配置在远程，最好也在本地保留应用名，方便识别
   application:

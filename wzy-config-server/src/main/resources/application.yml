@@ -7,13 +7,21 @@ spring:
   cloud:
     config:
       server:
-        git:
+        # git:
           # 【重要】改成你第一步创建的仓库地址，例如 https://gitee.com/你的用户名/springcloud-config-repo.git
-          uri: https://github.com/Allen-keating/springcloud-config-repo.git
-          default-label: main
+          # uri: https://github.com/Allen-keating/springcloud-config-repo.git
+          # default-label: main
           # 如果仓库是私有的，需要配置 username 和 password
           # username: your-username
           # password: your-password
+          svn:
+            # 填你第一步复制的 SVN URL，注意要包含 trunk
+            uri: https://AllenWang/svn/springcloud/trunk
+            # SVN 的账号密码
+            username: wzy
+            password: 123456
+            # 默认标签（对应 SVN 的目录结构，通常是 trunk）
+            default-label: trunk
   rabbitmq:
     # 请配置你的 RabbitMQ 地址，如果是本机默认安装可不改，容器化部署请改为 IP
     host: localhost
