@@ -24,7 +24,7 @@ public class OrderController {
         // 【新增】打印日志，对应教材中的 log.info("开始调用order方法...")
         log.info("开始调用 createOrder 方法...");
 
-        Integer clientId = 3;
+        Integer clientId = 4;
 
         // 调用远程服务
         Client client = clientFeignClient.findById(clientId);

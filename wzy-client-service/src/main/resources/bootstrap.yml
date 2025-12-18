@@ -12,6 +12,13 @@ spring:
       name: client
       profile: dev
       label: trunk
+  zipkin:
+    base-url: http://localhost:9041
+    sender:
+      type: web  # 使用 HTTP 方式发送
+    sleuth:
+      sampler:
+        probability: 1  # 1 表示 100% 采样（生产环境通常调低，实验设为 1 以便必定看到数据）
 
 # 【新增】必须在 bootstrap.yml 里配置 Eureka，否则连不上注册中心找不到 Config Server
 eureka:
