@@ -1,7 +1,9 @@
 server:
-  port: 12000 # 实验要求端口
+  port: 12001 # 实验要求端口
 
 spring:
+  profiles:
+    active: subversion  # 【新增关键配置】激活 SVN 模式，禁用默认的 Git 模式
   application:
     name: wzy-config-server
   cloud:
@@ -16,7 +18,7 @@ spring:
           # password: your-password
           svn:
             # 填你第一步复制的 SVN URL，注意要包含 trunk
-            uri: https://AllenWang/svn/springcloud/trunk
+            uri: https://AllenWang/svn/springcloud
             # SVN 的账号密码
             username: wzy
             password: 123456
@@ -38,5 +40,11 @@ management:
         include: bus-refresh
 eureka:
   client:
+    # 允许注册到 Eureka
+    register-with-eureka: true
+    # 允许拉取注册表
+    fetch-registry: true
     service-url:
       defaultZone: http://localhost:8888/eureka/
+  instance:
+    prefer-ip-address: true

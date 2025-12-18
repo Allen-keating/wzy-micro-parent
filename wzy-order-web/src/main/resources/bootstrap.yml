@@ -1,11 +1,16 @@
 spring:
   cloud:
     config:
-      uri: http://localhost:12000
-      # 对应 Git 上的 order-dev.yml
+      # uri: http://localhost:12000
+      discovery:
+        enabled: true
+        service-id: wzy-config-server
+
       name: order
       profile: dev
       label: trunk
 
-  application:
-    name: wzy-order-web
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
