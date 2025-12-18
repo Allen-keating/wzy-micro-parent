@@ -1,0 +1,15 @@
+server:
+  port: 9041
+
+spring:
+  application:
+    name: wzy-zipkin-server
+  main:
+    allow-bean-definition-overriding: true # 允许 Bean 覆盖，防止旧版 Zipkin 在 Spring Boot 2.x 中报错
+
+# 禁用 Zipkin 自身的 Sleuth 追踪，避免自己追踪自己产生死循环日志
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false

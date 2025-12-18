@@ -15,6 +15,7 @@
         <module>wzy-hystrix-monitor</module>
         <module>wzy-gateway</module>
         <module>wzy-config-server</module>
+        <module>wzy-zipkin-server</module>
 
 
     </modules>
